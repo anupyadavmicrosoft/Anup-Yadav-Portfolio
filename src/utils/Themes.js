@@ -26,3 +26,4 @@ export const lightTheme = {
   accent: "#38BDF8",           // Cyan blue for highlights and special focus
   border: "#B5C6D2",           // Soft, blue-gray borders for subtle definition
 };
+

@@ -35,7 +35,7 @@ const NavLogo = styled(LinkR)`
   align-items: center;
   width: 80%;
   padding: 0 6px;
-  font-weight: 500;
+  font-weight: 800;
   font-size: 18px;
   text-decoration: none;
   color: inherit;
@@ -50,14 +50,14 @@ const NavItems = styled.ul`
   padding: 0 6px;
   list-style: none;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 780px) {
     display: none;
   }
 `;
 
 const NavLink = styled.a`
   color: ${({ theme }) => theme.text_primary};
-  font-weight: 500;
+  font-weight: 800;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
@@ -154,6 +154,7 @@ const Navbar = () => {
           <NavLink href="#Experience">Experience</NavLink>
           <NavLink href="#Projects">Projects</NavLink>
           <NavLink href="#Education">Education</NavLink>
+          <NavLink href="#Education">Contact</NavLink>
         </NavItems>
 
         {isOpen && (
@@ -172,6 +173,9 @@ const Navbar = () => {
             </NavLink>
             <NavLink onClick={() => setIsOpen(!isOpen)} href="#Education">
               Education
+            </NavLink>
+            <NavLink onClick={() => setIsOpen(!isOpen)} href="#Education">
+              Contact
             </NavLink>
             <GithubButton
               href={Bio.github}

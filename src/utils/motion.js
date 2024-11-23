@@ -1,6 +1,3 @@
-// Optimized transition for faster animations
-export const transition = { type: "spring", duration: 0.4, stiffness: 60, damping: 12 };
-
 const getDirectionValues = (direction) => {
   switch (direction) {
     case "left":
@@ -21,22 +18,13 @@ export const slideAnimation = (direction) => {
 
   return {
     initial: {
-      x,
-      y,
       opacity: 0,
-      transition: { ...transition, delay: 0.1 },
     },
     animate: {
-      x: 0,
-      y: 0,
       opacity: 1,
-      transition,
     },
     exit: {
-      x,
-      y,
       opacity: 0,
-      transition,
     },
   };
 };
@@ -44,30 +32,27 @@ export const slideAnimation = (direction) => {
 export const fadeAnimation = {
   initial: {
     opacity: 0,
-    transition: { ...transition, delay: 0.1 },
   },
   animate: {
     opacity: 1,
-    transition,
   },
   exit: {
     opacity: 0,
-    transition,
   },
 };
 
 export const headTextAnimation = {
-  initial: { x: 60, opacity: 0 },
-  animate: { x: 0, opacity: 1, transition: { ...transition, duration: 0.3 } },
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
 };
 
 export const headContentAnimation = {
-  initial: { y: 60, opacity: 0 },
-  animate: { y: 0, opacity: 1, transition: { ...transition, duration: 0.4, delay: 0.1 } },
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
 };
 
 export const headContainerAnimation = {
-  initial: { x: -60, opacity: 0, transition: { ...transition, delay: 0.1 } },
-  animate: { x: 0, opacity: 1, transition },
-  exit: { x: -60, opacity: 0, transition },
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
 };

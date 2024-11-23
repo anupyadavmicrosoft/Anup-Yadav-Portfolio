@@ -21,20 +21,16 @@ const Body = styled.div`
   width: 100%;
   overflow-x: hidden;
   position: relative;
+  color: ${({ theme }) => theme.primary}; /* Default text color */
 `;
 
 const Wrapper = styled.div`
   padding-bottom: 100px;
   background: linear-gradient(
-      38.73deg,
-      rgba(29, 78, 216, 0.15) 0%,   // Primary blue with slight transparency
-      rgba(29, 78, 216, 0) 50%
-    ),
-    linear-gradient(
-      141.27deg,
-      rgba(56, 189, 248, 0) 50%,    // Accent cyan blue with transparency
-      rgba(56, 189, 248, 0.15) 100%
-    );
+    141.27deg,
+    rgba(56, 189, 248, 0) 50%,    
+    rgba(56, 189, 248, 0.15) 100%
+  );
   width: 100%;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 98%, 0 100%);
 `;
@@ -47,6 +43,9 @@ const ThemeSwitcher = styled.button`
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  position: fixed;
+  top: 20px;
+  right: 20px;
   &:hover {
     background-color: ${({ theme }) => theme.accent};
   }
@@ -56,7 +55,10 @@ function App() {
   const [openModal, setOpenModal] = useState({ state: false, project: null });
   const [isDarkTheme, setIsDarkTheme] = useState(true); // state to toggle themes
 
-  const toggleTheme = () => setIsDarkTheme(!isDarkTheme);
+  const toggleTheme = () => {
+    setIsDarkTheme(!isDarkTheme);
+    console.log("Theme switched to:", isDarkTheme ? "Light" : "Dark"); // Debug log
+  };
 
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
